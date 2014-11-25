@@ -1,18 +1,31 @@
 <div id='container' ng-controller='LinksController'>
 
+  <div class='container'>
+    <nav class='navigation'>
+      <ul>
+        <li>
+          <a href="#/signin">Sign in</a>
+        </li>
+        <li>
+          <a href="#/signup">Sign up</a>
+        </li>
+      </ul>
+    </nav>
+   </div>
+
+
   <table class='table'>
     <thead>
       <tr>
-        <th>Title</th>
         <th>URL</th>
-        <th>Shortcode</th>
+        <th>Visits</th>
       </tr>
     </thead>
+
     <tbody>
       <tr ng-repeat="link in data.links">
-        <td> {{ link.title }}</td>
-        <td> </td>
-        <td> </td>
+        <td>http://shortly/{{ link.code }}</td>
+        <td> {{ link.visits }}</td>
       </tr>
     </tbody>
   </table>

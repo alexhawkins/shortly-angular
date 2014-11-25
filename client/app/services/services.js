@@ -9,24 +9,23 @@ angular.module('shortly.services', [])
       })
       .catch(function(error) {
         console.log(error);
-    });
+      });
   };
 
   var addLink = function(link){
-    return $http.post('/api/links', JSON.stringify(link))
-    .then(function(results) {
-      return results.data;
-    })
+    return $http.post('/api/links', JSON.stringify({url: link}))
+      .then(function(results) {
+        return results.data;
+      })
      .catch(function(error) {
         console.log(error);
-    });
+      });
   };
 
   return {
     getLinks: getLinks,
     addLink: addLink
   };
-
 })
 
 .factory('Auth', function ($http, $location, $window) {
