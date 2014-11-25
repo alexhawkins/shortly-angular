@@ -1,16 +1,21 @@
 <div class='container' ng-controller='ShortenController'>
-   <form name="addLinkForm" ng-submit='Link.addLink()'>
+   <form name="addLinkForm" ng-submit='addLink()'>
      {{ link }}
 
-    <input name="inputLink" type='text'ng-model='Link.addlink' required ng-minlength="3" ng-maxlength="10">
-
-    <span class="error" ng-show="addLinkForm.inputLink.$error.required">
+    <input name="inputLink" type='url' ng-model='Link.addlink'>
+    <span class="valid" ng-show="addLinkForm.inputLink.$dirty && addLinkForm.inputLink.$valid">
+      Url is valid!</span><br>
+    <span class="error" ng-show="addLinkForm.inputLink.$invalid">
+      Url is not valid!</span><br>
+    <!-- <span class="error" ng-show="addLinkForm.inputLink.$error.required">
       Required!</span><br>
     <span class="error" ng-show="addLinkForm.inputLink.$error.minlength">
-      Too short!</span>
+      Too short!</span><br>
     <span class="error" ng-show="addLinkForm.inputLink.$error.maxlength">
       Too long!</span><br>
-    <button>Submit Link</button>
+    <span class="error" ng-show="addLinkForm.inputLink.$error.url">
+      Not a valid Url!</span><br>
+    <button>Submit Link</button> -->
 
    </form>
 
