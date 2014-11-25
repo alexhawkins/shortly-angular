@@ -17,13 +17,15 @@
   <table class='table'>
     <thead>
       <tr>
-        <th>URL</th>
+        <th>Original</th>
+        <th>Shortly</th>
         <th>Visits</th>
       </tr>
     </thead>
 
     <tbody>
       <tr ng-repeat="link in data.links">
+        <td> {{ link.url }}</td>
         <td>http://shortly/{{ link.code }}</td>
         <td> {{ link.visits }}</td>
       </tr>
