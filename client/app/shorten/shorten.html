@@ -1,6 +1,33 @@
-<div id='container' ng-controller='ShortenController'>
+<div class='container' ng-controller='ShortenController'>
+   <form name="addLinkForm" ng-submit='Link.addLink()'>
+     {{ link }}
 
-  <button></button>
+    <input name="inputLink" type='text'ng-model='Link.addlink' required ng-minlength="3" ng-maxlength="10">
+
+    <span class="error" ng-show="addLinkForm.inputLink.$error.required">
+      Required!</span><br>
+    <span class="error" ng-show="addLinkForm.inputLink.$error.minlength">
+      Too short!</span>
+    <span class="error" ng-show="addLinkForm.inputLink.$error.maxlength">
+      Too long!</span><br>
+    <button>Submit Link</button>
+
+   </form>
+
+   <div class='container'>
+    <nav class='navigation'>
+      <ul>
+        <li>
+          <a href="#/links">Links</a>
+        </li>
+        <li>
+          <a href="#/shorten">Shorten</a>
+        </li>
+      </ul>
+    </nav>
+   </div>
 </div>
+
+
 
 
