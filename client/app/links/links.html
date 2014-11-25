@@ -24,13 +24,16 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="link in data.links">
-        <td> {{ link.url }}</td>
+      <tr ng-repeat="link in data.links | filter:search">
+        <td> {{ link.url.slice(7) }}</td>
         <td>http://shortly/{{ link.code }}</td>
         <td> {{ link.visits }}</td>
       </tr>
     </tbody>
   </table>
+
+    <input placeholder="filter" type='text' ng-model='search'>
+
 
   <div class='container'>
     <nav class='navigation'>
