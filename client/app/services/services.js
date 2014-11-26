@@ -1,9 +1,18 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
+  // var numVisits = something from server
+  // var incrVisits = function(numVisits){
+    // increment currentVisits
+  // }
+  //
 
   var getLinks = function(){
-    return $http.get('/api/links')
+
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
       .then(function(results) {
         return results.data;
       })
@@ -13,6 +22,7 @@ angular.module('shortly.services', [])
   };
 
   var addLink = function(link){
+    //send the updated version of visits
     return $http.post('/api/links', JSON.stringify({url: link}))
       .then(function(results) {
         return results.data;

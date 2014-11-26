@@ -3,9 +3,20 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ngRoute',
+  'ngLoading'
 ])
-.config(function($routeProvider, $httpProvider) {
+.config(function($routeProvider, $httpProvider, loadingProvider) {
+  loadingProvider
+    .load({
+      transitionSpeed: '.3s', //default
+      class: 'spinner', //default is the 'load-bar-inbox' class, another option is the 'spinner' class
+        overlay: {
+          display: true, //required to apply an overlay
+          color: '#FF0000', //default
+          // opacity: .3 //default
+        }
+    });
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',

@@ -1,9 +1,12 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links, $http) {
+.controller('LinksController', function ($scope, Links, $http, Interceptor) {
   $scope.data = {};
+  Interceptor.start();
   Links.getLinks().then(function(results){
     $scope.data.links = results;
+    Interceptor.end();
+    console.log(results);
   });
 });
 

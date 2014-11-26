@@ -13,11 +13,11 @@
     </nav>
    </div>
 
-   <form name="addLinkForm" ng-submit='addLink()'>  <!-- ////////////// -->
+   <form name="addLinkForm" ng-submit='addLink()'>
 
-     <pre> {{ link.url }} </pre>
+     <!-- <pre> {{ link }}   </pre> -->
 
-    <input name="inputLink"  placeholder="Add link" type='url' ng-model='link.url'> <!-- ////////////// -->
+    <input name="inputLink"  placeholder="Add link" type='url' ng-model='link.url'>
 
     <span class="valid" ng-show="addLinkForm.inputLink.$dirty && addLinkForm.inputLink.$valid">
       Url is valid!</span><br>

@@ -24,15 +24,16 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="link in data.links | filter:search">
-        <td> {{ link.url.slice(7) }}</td>
-        <td>http://shortly/{{ link.code }}</td>
-        <td> {{ link.visits }}</td>
+      <input placeholder="filter" type='text' ng-model='search'>
+      <tr ng-repeat="link in data.links | filter:search | orderBy: '-visits' ">
+        <td>  {{ link.url.slice(7) }}  </td>
+        <td><a ng-href="http://localhost:8000/api/links/{{ link.code }}">http://shortly/{{ link.code }}</td>
+        <td>  {{ link.visits }}  </td>
+        <!-- <td> <button ng-click='removeLink()'> Delete</button> </td> -->
       </tr>
     </tbody>
   </table>
 
-    <input placeholder="filter" type='text' ng-model='search'>
 
 
   <div class='container'>
